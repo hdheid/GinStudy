@@ -1,0 +1,1687 @@
+{{define "posts/index.html"}}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>活动 - AcWing</title>
+
+
+    <meta charset="UTF-8">
+    <meta name="keywords" content="AcWing,刷题,打卡,线上活动"/>
+    <meta name="description" content="组织大家一起刷题，一块讨论，一块交流"/>
+    <meta name="baidu-site-verification" content="UW1SBiMHO7" />
+    <meta name="google-site-verification" content="YTgbOq_0TDShJS6KTcUYCQoAAZTm308SJ7ibsafBD_Y" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" type="image/png" href="https://cdn.acwing.com/static/web/img/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/web/node_modules/bootstrap-toggle/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/web/css/signform.css">
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/jquery-ui-dist/jquery-ui.min.css">
+
+
+    <!--link rel="stylesheet" href="https://cdn.acwing.com/static/web/css/pace.css"-->
+    <!--script src="https://cdn.acwing.com/static/web/js/pace.js"></script-->
+    <script>
+        let onbeforeunload_functions = [];
+    </script>
+
+
+    <style>
+        /* latin */
+        @font-face {
+            font-family: 'Satisfy';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Satisfy Regular'), local('Satisfy-Regular'), url(https://cdn.acwing.com/static/web/fonts/rP2Hp2yn6lkG50LoCZOIHQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Lato';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Lato Italic'), local('Lato-Italic'), url(https://cdn.acwing.com/static/web/fonts/S6u8w4BMUTPHjxsAUi-qJCY.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Lato';
+            font-style: italic;
+            font-weight: 400;
+            src: local('Lato Italic'), local('Lato-Italic'), url(https://cdn.acwing.com/static/web/fonts/S6u8w4BMUTPHjxsAXC-q.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Lato';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://cdn.acwing.com/static/web/fonts/S6u_w4BMUTPHjxsI5wq_FQft1dw.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Lato';
+            font-style: italic;
+            font-weight: 700;
+            src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://cdn.acwing.com/static/web/fonts/S6u_w4BMUTPHjxsI5wq_Gwft.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lato Regular'), local('Lato-Regular'), url(https://cdn.acwing.com/static/web/fonts/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Lato Regular'), local('Lato-Regular'), url(https://cdn.acwing.com/static/web/fonts/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        /* latin-ext */
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Lato Bold'), local('Lato-Bold'), url(https://cdn.acwing.com/static/web/fonts/S6u9w4BMUTPHh6UVSwaPGR_p.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        /* latin */
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Lato Bold'), local('Lato-Bold'), url(https://cdn.acwing.com/static/web/fonts/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+    </style>
+    <script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.acwing.com/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.acwing.com/static/web/node_modules/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
+    <script src="https://cdn.acwing.com/static/jquery-ui-dist/jquery-ui.min.js"></script>
+    <script src="https://cdn.acwing.com/static/web/node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+        $(document).ready(function () {
+            var csrftoken = $.cookie('csrftoken');
+
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                },
+                cache: true
+            });
+        });
+    </script>
+    <script src="https://cdn.acwing.com/static/web/js/signform-0.0.1.js"></script>
+    <script src="https://cdn.acwing.com/static/web/js/handlebars-v1.3.0.js"></script>
+    <script src="https://cdn.acwing.com/static/web/js/effect_anchor-0.0.1.js"></script>
+    <script src="https://cdn.acwing.com/static/web/js/editor/utils-0.0.1.js"></script>
+
+    <script>
+        let user_state = {
+            is_authenticated: false,
+            is_pc: false,
+            is_tablet: false,
+            is_mobile: false,
+        };
+        if (user_state.is_authenticated){
+            user_state.user_id = None;
+            user_state.info = "";
+        }
+
+        user_state.is_pc = true;
+
+    </script>
+    <script>
+        let GLOBAL_COMMENT_SONS = {};
+    </script>
+    <style>
+
+        #acwing_body {
+            background: white url("https://cdn.acwing.com/static/web/img/background.png") fixed;
+            background-size: auto;
+        }
+
+
+
+        @media (min-width: 768px) and (max-width: 1000px) {
+            .collapse {
+                display: none !important;
+            }
+        }
+        .popover {
+            z-index: 1000000 !important;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+        @media (min-width: 992px) {
+            .container {
+                width: 900px;
+            }
+        }
+        @media (min-width: 1200px) {
+            .container {
+                width: 1000px;
+            }
+        }
+
+        @media (min-width: 1300px) {
+            .container {
+                width: 1170px;
+            }
+        }
+    </style>
+
+
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/plugins/css/ace.min.css">
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/martor/css/martor.min.css">
+
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/web/css/martor.css">
+
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/web/css/file_system/file/content/comment.css">
+
+
+    <link rel ="stylesheet" href="https://cdn.acwing.com/static/web/css/style-0.0.16.css">
+
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/web/css/base/navbar.css">
+
+
+
+
+    <link rel="stylesheet" href="https://cdn.acwing.com/static/web/css/activity/index_0.0.1.css">
+    <style>
+        .qrcode-1024:hover {
+            transform: scale(2);
+            transition: 200ms;
+        }
+    </style>
+
+
+</head>
+<body id="acwing_body" style="min-height: 100vh;">
+
+
+
+<div id="acwing_page" >
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-lg" style="z-index: 10;">
+        <div class="container">
+            <!-- Header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+
+
+
+                <a class="navbar-brand" href="/">AcWing</a>
+            </div>
+
+            <!-- Items -->
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="/about/">首页</a></li>
+                    <li id="navigation_activity_active_id" class="active"><a href="/activity/">活动</a></li>
+                    <li class=""><a href="/problem/">题库</a></li>
+                    <li id="navigation_competition_active_id" class=""><a href="/activity/1/competition/">竞赛</a></li>
+                    <li class=""><a href="/file_system/file/content/whole/index/content/whole/application/1/">应用</a></li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            更多
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/solution/">题解</a></li>
+                            <li><a href="/blog/">分享</a></li>
+                            <li id="navigation_store_active_id" class=""><a href="/activity/1/product/">商店</a></li>
+
+                            <li class=""><a href="/http_wss/danmu/world/">吐槽</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a href="/app/version/download/index/">App</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#login-modal">登录/注册</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="base_body">
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h1 class="text-center">AcWing在线活动</h1>
+
+                    <a class="btn btn-default pull-right" target="_blank" href="https://cdn.acwing.com/media/files/lesson_guide_3.pdf" style="border-radius: 5px;">
+                        <img width="20" class="img-responsive" src="https://cdn.acwing.com/static/web/img/activity/class_selection_guide.png"
+                             alt="排行榜" style="display: inline"> &nbsp; 选课指南
+                    </a>
+                    <br>
+                    <hr style="margin: 30px 0 1px 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/考研logo_dXOm9CI.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/3343/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">考研408-数据结构（上机）</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">考研408-数据结构——上机题合集。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">7392</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/QQ截图20210722233821.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/57/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">Linux基础课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程为AcWing工程课系列——Level-1，讲解各种项目后端服务器的配置与使用方式。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">11949</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/log.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/21/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">语法基础课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">为准备算法竞赛、公司笔试面试的同学铺垫C++语法基础，并讲解考试中常用的语法技巧。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">20309</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/logo_9U4FkfC.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/11/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">算法基础课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">系统讲解常用算法与数据结构，给出相应代码模板，并会布置、讲解相应的基础算法题目。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">58120</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/logo_Ku14hik.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/16/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">算法提高课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程系统讲解常用算法与数据结构的应用方式与技巧。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">22248</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/Drawing1_8Vk4q4F.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/32/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">算法进阶课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程系统讲解高阶算法和数据结构的原理、代码模板以及应用方式。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">5349</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/微信图片_20210924160119.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/19/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">蓝桥杯C++ AB组辅导课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">为备战蓝桥杯C++ AB组省赛的同学提供赛前辅导。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">16081</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/微信图片_20220822140854.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/2230/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">Java语法基础课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程为Java语法速通班，为准备找工作的同学讲解Java语法基础与技巧，并布置138道语法习题。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">5167</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/考研logo.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/48/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">考研408-数据结构（笔试）</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">为备战考研408数据结构笔试的同学提供考前辅导。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">4280</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/acdjango.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/72/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">Django框架课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程为AcWing工程课系列——Level-2 第一篇，讲解Python语法和Django框架。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">6341</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/web.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/1150/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">Web应用课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程为AcWing工程课系列——Level-3 第一篇，讲解Web相关知识。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">6069</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/logo_N1AhSi4.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/2487/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">Unity3D应用课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程为AcWing工程课系列——Level-3 第二篇，讲解Unity3D游戏引擎。游戏开发必备。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">1429</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/springbootlesson.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/1877/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">SpringBoot框架课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本课程为AcWing工程课系列——Level-2 第二篇，讲解Java基础语法和SpringBoot框架。Java入门开发必备。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">5338</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/微信图片_20200517115629_RbnOGCk.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/31/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">LeetCode究极班</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本活动带领大家攻陷LeetCode！会将LeetCode上前1500题中的所有非会员算法题讲一遍。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">9506</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/无标题1_SoJA5J7.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/39/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">CCF-CSP认证辅导课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">为备战CCF-CSP认证考试的同学提供考前辅导。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">3700</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/微信图片_20210924160109.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/27/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">PAT甲级辅导课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">为备战PAT甲级考试的同学提供考前辅导。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">2658</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/logo100x100.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/23/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">算法笔试面试辅导课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">针对准备春招、秋招、暑期实习的同学做算法辅导。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">2492</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/csp-js.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/42/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">CSP-J（NOIP普及组）辅导课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">讲解CSP-J（NOIP普及组）历年题。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">1041</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/usaco_training_ngVdNAm.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/36/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">USACO Training辅导课</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本活动带领大家刷穿USACO Training的所有题目。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">1779</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/无标题_coNm9Y9.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/41/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">《算法竞赛进阶指南》第0x60章作者李煜东亲讲</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">《算法竞赛进阶指南》的作者李煜东讲解本书第0x60章的知识点及全部例题。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">662</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/无标题.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/35/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">《算法竞赛进阶指南》第0x50章作者李煜东亲讲</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">《算法竞赛进阶指南》的作者李煜东讲解本书第0x50章的知识点及全部例题。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">1347</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/QQ截图20200220150307.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/22/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">杂题选讲</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">讲解同学们投稿的题目。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">26137</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/5ab354f9Nff94080c.jpg" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/6/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">《算法竞赛进阶指南》打卡活动</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">本活动组织刷《算法竞赛进阶指南》，系统学习各种编程算法。主要面向有一定编程基础的同学。</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">36772</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div class="activity-index-block">
+                        <div class="row">
+                            <div class="hidden-sm hidden-xs col-md-1" style="max-width: 100px;">
+                                <img src="https://cdn.acwing.com/media/activity/surface/夏季每日一题.png" width="80px" alt="活动封面">
+                            </div>
+                            <div class="col-md-11">
+                                <a href="/activity/content/3307/">
+                                    <div class="row" >
+                                        <div class="col-xs-8 col-sm-8">
+                                            <span class="activity_title">夏季每日一题2023</span>
+
+
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4" align="right">
+                                        <span class="btn btn-success activity_status">
+                                            进行中
+                                        </span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <span class="activity_abstract">夏季组队学习算法，备战CSP、蓝桥杯、PAT、笔试面试、考研！</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 text-center">
+                                            <div class="visible-xs-block">
+                                                <hr style="margin: 5px;">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">参与人数</span>
+                                                <br>
+                                                <span class="activity_td">6814</span>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="activity_th">起止时间</span>
+                                                <br>
+
+                                                <span class="activity_td">永久</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin: 0;">
+
+                    <div align="right">
+                        <ul class="pagination">
+                            <li><a href="/activity/1/course/">&laquo;</a></li>
+
+                            <li class="active"><a href="/activity/1/course/">1</a></li>
+
+                            <li class=""><a href="/activity/2/course/">2</a></li>
+
+                            <li class=""><a href="/activity/3/course/">3</a></li>
+
+                            <li><a href="/activity/3/course/">&raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="acwing_footer" class="footer">
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-sm-8 copyright">
+                <span>
+                    © 2018-2023 AcWing 版权所有
+                    &nbsp;|&nbsp;
+                    <a href="http://beian.miit.gov.cn/">京ICP备17053197号-1</a>
+                </span>
+                </div>
+                <div class="text-right col-sm-4 region-us">
+                    <div class="links">
+                        <a href="/footer/agreement/">用户协议</a>
+                        &nbsp;|&nbsp;
+                        <a href="/footer/privacy_policy/">隐私政策</a>
+                        &nbsp;|&nbsp;
+                        <a href="/footer/faq/">常见问题</a>
+                        &nbsp;|&nbsp;
+                        <a href="/footer/contactus/">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 85%; max-width: 350px;">
+        <div class="modal-content">
+            <div class="modal-header" align="center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <span class = "acwing-brand">AcWing</span>
+            </div>
+
+            <!-- Begin # DIV Form -->
+            <div id="div-forms">
+
+                <!-- Begin # Login Form -->
+                <form class="sign-form" id="login-form" role="form" action="/user/account/signin/" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="ZQnvC0eW2w8DFxJQ72BVwh1ZuzAS2QVHQu2oVzes8QdHVc9Yz3kWemNScT9aDb35">
+                    <div class="modal-body">
+                        <div id="div-login-msg">
+                            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                            <span id="text-login-msg">请输入登录信息</span>
+                        </div>
+                        <input id="login_username" name="username" class="form-control" type="text" placeholder="用户名或邮箱" maxlength="30" required>
+                        <input id="login_password" name="password" class="form-control" type="password" placeholder="密码" maxlength="16" required>
+                        <div class="checkbox">
+                            <label>
+                                <input id="login_remember_me" name="remember_me" type="checkbox" checked="checked"> 记住我
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>
+                        </div>
+                        <div>
+                            <div style="width:50%;padding:0;margin:0;float:left;box-sizing:border-box;" align="left">
+                                <button id="login_lost_btn" type="button" class="btn btn-link">忘记密码</button>
+                            </div>
+                            <div style="width:50%;padding:0;margin:0;float:left;box-sizing:border-box;" align="right">
+                                <button id="login_register_btn" type="button" class="btn btn-link">注册</button>
+                            </div>
+                        </div>
+                        <div>
+                            更多登录方式：
+                            <a id="third_party_weixin_connect_link_base" href="#" style="margin-right: 5px">
+                                <img class="img" src="https://cdn.acwing.com/static/web/img/third_party_icons/icon48_wx_logo.png" width="30px" alt="微信图标">
+                            </a>
+                            <a href="/third_party/qq/login/apply_code?source_url=/activity/" style="margin-right: 5px">
+                                <img class="img" src="https://cdn.acwing.com/static/web/img/third_party_icons/qq.jpg" width="26px" alt="qq图标">
+                            </a>
+                            <a href="/third_party/cell_phone/login/index/?source_url=/activity/">
+                                <img class="img" src="https://cdn.acwing.com/static/web/img/user/profile/security/cell-phone3.png" width="20px" alt="qq图标">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <!-- End # Login Form -->
+
+                <!-- Begin | Lost Password Form -->
+                <form class="sign-form" id="lost-form" role="form" action="/user/account/password_forget/" method="post" enctype="multipart/form-data" style="display:none;" >
+                    <input type="hidden" name="csrfmiddlewaretoken" value="ZQnvC0eW2w8DFxJQ72BVwh1ZuzAS2QVHQu2oVzes8QdHVc9Yz3kWemNScT9aDb35">
+                    <div class="modal-body">
+                        <div id="div-lost-msg">
+                            <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                            <span id="text-lost-msg">请输入绑定的邮箱地址</span>
+                        </div>
+                        <input id="lost_email" name="email" class="form-control" type="email" placeholder="邮箱地址" maxlength="254" required>
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="submit" id="lost_password_btn" class="btn btn-primary btn-lg btn-block">发送</button>
+                        </div>
+                        <div>
+                            <div style="width:50%;padding:0;margin:0;float:left;box-sizing:border-box;" align="left">
+                                <button id="lost_login_btn" type="button" class="btn btn-link">登录</button>
+                            </div>
+                            <div style="width:50%;padding:0;margin:0;float:left;box-sizing:border-box;" align="right">
+                                <button id="lost_register_btn" type="button" class="btn btn-link">注册</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- End | Lost Password Form -->
+
+                <!-- Begin | Register Form -->
+                <form class="sign-form" id="register-form" role="form" action="/user/account/signup/" method="post" enctype="multipart/form-data" style="display:none;">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="ZQnvC0eW2w8DFxJQ72BVwh1ZuzAS2QVHQu2oVzes8QdHVc9Yz3kWemNScT9aDb35">
+                    <div class="modal-body">
+                        <div id="div-register-msg">
+                            <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                            <span id="text-register-msg">请输入注册信息</span>
+                        </div>
+                        <input id="register_username" name="username" class="form-control" type="text" placeholder="用户名" maxlength="30" required>
+                        <input id="register_password" name="password" class="form-control" type="password" placeholder="密码" maxlength="16" required>
+                        <input id="register_email" name="email" class="form-control" type="email" placeholder="邮箱地址" maxlength="50" required>
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">注册</button>
+                        </div>
+                        <div align="right">
+                            <button id="register_login_btn" type="button" class="btn btn-link">登录</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End | Register Form -->
+
+            </div>
+            <!-- End # DIV Form -->
+
+        </div>
+    </div>
+</div>
+<!-- END # MODAL LOGIN -->
+
+
+
+
+
+
+<div id="modal-warning" class="modal modal-message modal-warning fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="glyphicon glyphicon-warning-sign"></i>
+            </div>
+            <div id="warning_message_content" class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">OK</button>
+            </div>
+        </div> <!-- / .modal-content -->
+    </div> <!-- / .modal-dialog -->
+</div>
+
+
+
+
+
+<script src="https://cdn.acwing.com/static/web/js/copy_with_link.js"></script>
+<script>
+    let article_author = "";
+    if (article_author.length === 0) article_author = "AcWing";
+    let VIDEO_CONTENT_WATERMARK_LOGO_URL = "https://cdn.acwing.com/static/web/img/32X32.ico";
+</script>
+<script src="https://cdn.acwing.com/static/plugins/js/highlight.min.js"></script>
+<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+          showMathMenu: false,
+        });
+</script>
+<script type="text/javascript" src="https://cdn.acwing.com/static/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    $('pre').each(function(i, block){
+        hljs.highlightBlock(block);
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.acwing.com/static/web/js/file_system/file/operation/comment/pull-0.0.6.js"></script>
+<script>
+
+
+    $(document).ready(function () {
+        let $weixin_connect_link = $('#third_party_weixin_connect_link_base');
+        $weixin_connect_link.attr("href", "/third_party/weixin/open_platform/login/apply_code/?source_url=/activity/");
+        if (typeof WeixinJSBridge === "object" && typeof WeixinJSBridge.invoke === "function") {
+            callback();
+        } else {
+            if (document.addEventListener) {
+                document.addEventListener("WeixinJSBridgeReady", callback, false);
+            } else if (document.attachEvent) {
+                document.attachEvent("WeixinJSBridgeReady", callback);
+                document.attachEvent("onWeixinJSBridgeReady", callback);
+            }
+        }
+        function callback() {
+            $weixin_connect_link.attr("href", "/third_party/weixin/open_platform/login/apply_code/1/?source_url=/activity/");
+        }
+    });
+
+    window.onbeforeunload = function (ev) {
+
+
+
+        let notify = false;
+        for (let i = 0; i < onbeforeunload_functions.length; i ++ ){
+            let ret = onbeforeunload_functions[i]();
+            if (ret){
+                notify = true;
+            }
+        }
+        if (notify){
+            return true;
+        }
+    };
+
+    let CLICK_URL = "/status/count/click/";
+</script>
+<script src="https://cdn.acwing.com/static/web/js/status/click.js"></script>
+
+</body>
+</html>
+{{end}}

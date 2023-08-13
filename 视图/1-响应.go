@@ -78,6 +78,11 @@ func Html(c *gin.Context) {
 	c.HTML(200, "index.html", gin.H{"username": "cfd"}) //可以将参数传递给html，在index.html页面也有部分细节
 }
 
+// Redirect 301是临时重定向，302是永久重定向：https://blog.csdn.net/qq_43968080/article/details/107355758
+func Redirect(c *gin.Context) {
+	c.Redirect(301, "https://cn.bing.com/?mkt=zh-CN")
+}
+
 func main() {
 	r := gin.Default()
 
@@ -103,6 +108,8 @@ func main() {
 	//像这样，就只能访问到 hello.txt，不能访问到 world.txt
 	r.StaticFS("/static", http.Dir("static/static"))
 	//上述两个请求的第一个参数不能有重复的前缀
+
+	r.GET("/bing", Redirect) //重定向
 
 	r.Run(":80") //端口为80表示访问 127.0.0.1 就能成功，不需要加上端口号
 }

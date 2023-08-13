@@ -94,5 +94,15 @@ func main() {
 	r.LoadHTMLGlob("templates/*") //加载模板目录下的所有模板文件
 	r.GET("/html", Html)
 
+	//加载静态资源，将文件加载到网页上，前一个参数表示网页请求的路由，后一个参数表示文件存储在哪的路径
+	//这样就可以选择将哪些文件加载到网页，因为不可能一次将整个项目全部加载到网页，这样的话就很危险
+	//在goland中，没有相对文件路径，只有相对的项目路径。也就是说，寻找文件的时候是从GinStudy开始往下找，所以文件路径可以直接写成 "static/Doraemon.jpg"
+	r.StaticFile("/哆啦a梦", "static/Doraemon.jpg")
+
+	//网页请求这个静态网页的前缀，第二个参数是请求的目录
+	//像这样，就只能访问到 hello.txt，不能访问到 world.txt
+	r.StaticFS("/static", http.Dir("static/static"))
+	//上述两个请求的第一个参数不能有重复的前缀
+
 	r.Run(":80") //端口为80表示访问 127.0.0.1 就能成功，不需要加上端口号
 }

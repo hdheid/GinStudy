@@ -52,7 +52,7 @@ func GetDetail(c *gin.Context) {
 	})
 }
 
-// 接收前端传来的json数据
+// Create 接收前端传来的json数据
 func Create(c *gin.Context) {
 	_, book := BindJson(c) //封装成了函数，将从前端获取到的JSON数据存储到结构体中
 

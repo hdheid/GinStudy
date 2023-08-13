@@ -1,4 +1,3 @@
-{{define "users/index.html"}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,12 @@
     <title>users/index</title>
 </head>
 <body>
-{{.title}}
+你好 html！
+
+<header>
+    你好{{.username}}
+<!--    使用{{.username}} 将后端传递过来的 username 的数据传递过来-->
+</header>
+
 </body>
 </html>
-{{end}}

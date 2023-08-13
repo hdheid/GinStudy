@@ -74,6 +74,10 @@ func Yaml(c *gin.Context) {
 	})
 }
 
+func Html(c *gin.Context) {
+	c.HTML(200, "index.html", gin.H{"username": "cfd"}) //可以将参数传递给html，在index.html页面也有部分细节
+}
+
 func main() {
 	r := gin.Default()
 
@@ -86,6 +90,9 @@ func main() {
 	r.GET("/xml", Xml) //响应xml
 
 	r.GET("/yaml", Yaml) //响应yaml
+
+	r.LoadHTMLGlob("templates/*") //加载模板目录下的所有模板文件
+	r.GET("/html", Html)
 
 	r.Run(":80") //端口为80表示访问 127.0.0.1 就能成功，不需要加上端口号
 }

@@ -17,6 +17,17 @@ func CreateCopy(c *gin.Context) {
 	c.JSON(200, gin.H{"msg": "成功"})
 }
 
+// MultiFile 上传多个文件
+func MultiFile(c *gin.Context) {
+	form, _ := c.MultipartForm()
+	files := form.File["upload[]"] //upload[]的名字对应的是form-data上面的key的名字
+	for _, file := range files {
+		c.SaveUploadedFile(file, "./upload/"+file.Filename) //保存上传的多个文件
+	}
+
+	c.JSON(200, gin.H{"msg": fmt.Sprintf("成功上传%d个文件", len(files))})
+}
+
 func main() {
 	r := gin.Default()
 
@@ -32,6 +43,8 @@ func main() {
 	})
 
 	r.POST("/upload2", CreateCopy)
+
+	r.POST("/uploads", MultiFile)
 
 	r.Run(":80")
 }
